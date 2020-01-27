@@ -49,37 +49,42 @@
 #' @return an object of class \code{"ARZIMMObject"} is returned, which is a list with the ingredients of fit.
 #'   \item{nwtable}{the matrix of network table of fit}
 #'   \item{mseest}{a list of mean square error:
+#'   \describe{
 #'     \item{rmseest}{the root square of mean standard error}
 #'     \item{rmseest}{the root square of mean pearson standardized error}
-#'   }
+#'   }}
 #'   \item{paralist}{a list of parameter estimates:
+#'   \describe{
 #'     \item{beta}{the matrix of fixed effects for the non-zero auto-regressive model}
 #'     \item{gamma}{the matrix of fixed effects for the zero state logit model}
 #'     \item{sigma}{the measurement error standard deviation for both the non-zero auto-regressive model and
 #'     the zero state logit model}
 #'     \item{ciest}{the estimated random effects part of both the non-zero auto-regressive model and
 #'     the zero state logit model}
-#'   }
+#'   }}
 #'   \item{runtime}{running time of the program}
 #'   \item{datalist}{an object of class \code{"ARZIMMData"}}
 #'   \item{resultall}{a list of parameter estimates of the fits with ingredients of the lambda}
 #'   \item{bootparapval}{a list of p values obtain via bootstrap with componenets:
+#'   \describe{
 #'     \item{betapval}{a vector of p values of fixed effects for the non-zero auto-regressive model}
 #'     \item{gammapval}{a vector of p values of fixed effects for the zero state logit model}
 #'     \item{sigmapval}{a vector of p values of the measurement error standard deviation for both the
 #'     non-zero auto-regressive model and the zero state logit model}
-#'   }
+#'   }}
 #'   \item{tunlist}{the values of parameters used in the fits with components:
+#'   \describe{
 #'     \item{lambdabeta}{the values of \code{lambda} used in the non-zero auto-regressive model}
 #'     \item{lambdagamma}{the values of \code{lambda} used in the zero state logit model}
 #'     \item{weight1all}{observation weights used in the non-zero auto-regressive model}
-#'   }
+#'   }}
 #'   \item{parasetup}{a list of parameters used to initial the ARZIMM program with components:
+#'   \describe{
 #'     \item{initpara}{a list of initial parameter inputs; if the inputs are absent, default values are included}
 #'     \item{lambda}{the values of \code{lambda} used in the fits.}
 #'     \item{tunpara}{a list of tunning parameter inputs; if the inputs are absent, default values are included}
 #'     \item{selectpara}{a list of selection parameter inputs; if the inputs are absent, default values are included}
-#'   }
+#'   }}
 #' @keywords ARZIMM
 #' @export
 #' @examples

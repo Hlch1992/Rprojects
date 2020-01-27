@@ -20,10 +20,11 @@
 #' @param  selgamma logical; should concomitant variables in the zero state logit model be selected
 #' @return a list of fits
 #'   \item{para}{a list of parameter estimates:
+#'   \describe{
 #'     \item{beta}{beta estimates}
 #'     \item{gamma}{gamma estimates}
 #'     \item{sigma}{sigma estimates}
-#'   }
+#'   }}
 #'   \item{ciestm}{the estimated random effects}
 #'   \item{conv}{logical; did the algorithm converged}
 #'   \item{df}{the number of non-zero parameter estimates}

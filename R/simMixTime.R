@@ -11,7 +11,6 @@
 #' @param  biN2M a vector of the random effects for the non-zero autoregression model
 #' @param  family a character string indicating the distribtuion. default is Poisson
 #' @return a list of simulations:
-#' zi=uN2Mt
 #'   \item{otu.tab}{a data frame of OTU table}
 #'   \item{convar}{a data frame of concomitant variables}
 #'   \item{subjid}{a vector of subject-time IDs}
