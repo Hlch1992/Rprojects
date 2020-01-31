@@ -122,6 +122,9 @@ an object of class \code{"ARZIMMObject"} is returned, which is a list with the i
 This function allows you to fit the ARZIMM.
 }
 \examples{
-ARZIMM()
+
+data(sampledata)
+ARZIMM::ARZIMM(Varname = Varname,Conname = Conname,fdata = fdata,IDname = IDname,Tname = Tname,
+bootpara=list(bootpval=T,nboot=100))
 }
 \keyword{ARZIMM}

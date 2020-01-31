@@ -7,7 +7,7 @@ bootsim=function(datalist=NA,paralist=NA){
   N=nrow(yFdataNM);N2=length(unique(group));L=ncol(conFdataNL);M=ncol(yFdataNM)
 
   ########## estimated parameters
-  beta=paralist$beta;gamma=paralist$gamma;sigma=paralist$sigma;biest=paralist$ciest
+  beta=paralist$beta;gamma=paralist$gamma;sigma=paralist$sigma;ciest=paralist$ciest
 
   logmu=as.matrix(cbind(1,xFdataNM)) %*% beta[-2,] + ciest[group] + t(t(xFdataNM0) * beta[2,])
 

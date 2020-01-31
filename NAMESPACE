@@ -3,3 +3,8 @@
 export(ARZIMM)
 export(emnr)
 export(simMixTime)
+import(expm)
+import(ggplot2)
+import(glmnet)
+import(lme4)
+import(phyloseq)

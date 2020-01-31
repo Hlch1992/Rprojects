@@ -88,7 +88,11 @@
 #' @keywords ARZIMM
 #' @export
 #' @examples
-#' ARZIMM()
+#'
+#' data(sampledata)
+#' ARZIMM::ARZIMM(Varname = Varname,Conname = Conname,fdata = fdata,IDname = IDname,Tname = Tname,
+#' bootpara=list(bootpval=T,nboot=100))
+
 
 
 ARZIMM=function(Varname=NA,Conname=NA,Covname=NA,fdata=NA,IDname='ID',Tname='Time',group=NA,family='Poisson',
@@ -101,7 +105,7 @@ ARZIMM=function(Varname=NA,Conname=NA,Covname=NA,fdata=NA,IDname='ID',Tname='Tim
   # options(warn=-1)
   start_time <- Sys.time()
 
-
+  cat("Program is running..be patient...")
   ##########################################################
   ################ reformat the data #######################
   ##########################################################
@@ -115,8 +119,8 @@ ARZIMM=function(Varname=NA,Conname=NA,Covname=NA,fdata=NA,IDname='ID',Tname='Tim
 
     ##### define basic parameters
     N2=length(unique(fdata[,IDname]));M=length(Varname);N=nrow(fdata)
-    if(!is.na(Conname)) {L=length(Conname)}else{L=0}
-    if(!is.na(Covname)) {q=length(Covname)}else{q=0}
+    if(!is.na(Conname[1])) {L=length(Conname)}else{L=0}
+    if(!is.na(Covname[1])) {q=length(Covname)}else{q=0}
     #;tmax=max(fdata[,Tname])
 
     ###### get ind for x and y
@@ -128,17 +132,17 @@ ARZIMM=function(Varname=NA,Conname=NA,Covname=NA,fdata=NA,IDname='ID',Tname='Tim
 
     ####### define data as y, x, covariates and concomitant
     yFdataNM=fdata[indy,Varname];  xFdataNM=fdata[indx,Varname]
-    if(is.na(Conname)){conFdataNL=NULL}else{conFdataNL=t(t(fdata[indx,Conname]))}
-    if(is.na(Covname)){covFdataNq=NULL}else{covFdataNq=t(t(fdata[indx,Covname]))}
+    if(is.na(Conname[1])){conFdataNL=NULL}else{conFdataNL=t(t(fdata[indx,Conname]))}
+    if(is.na(Covname[1])){covFdataNq=NULL}else{covFdataNq=t(t(fdata[indx,Covname]))}
     conFdataNL=apply(conFdataNL,2,function(x) as.numeric(as.character(x)))
     if(!is.na(Covname)) covFdataNq=apply(covFdataNq,2,function(x) as.numeric(as.character(x)))
 
     ####### log transformation x data
     if (family=='Poisson') xFdataNM=log(xFdataNM+1)
-    if(!is.na(Covname)) {xFdataNMq=cbind(xFdataNM,covFdataNq)}else{xFdataNMq=xFdataNM}
+    if(!is.na(Covname[1])) {xFdataNMq=cbind(xFdataNM,covFdataNq)}else{xFdataNMq=xFdataNM}
 
     ####### define group variable for random effect
-    if(is.na(group)) group=match(fdata[indx,IDname],unique(fdata[,IDname]))
+    if(is.na(group[1])) group=match(fdata[indx,IDname],unique(fdata[,IDname]))
 
     datalist=list(yFdataNM=yFdataNM,xFdataNM=xFdataNMq,conFdataNL=conFdataNL,group=group,xFdataNM0=xFdataNM0)
 
@@ -213,6 +217,8 @@ ARZIMM=function(Varname=NA,Conname=NA,Covname=NA,fdata=NA,IDname='ID',Tname='Tim
                weight1all=weight1all,weight2all=weight2all,selgamma=selgamma)
   paralist=list(beta=beta,gamma=gamma,sigma=sigma,ciest=ciest)
   if(bootpval){
+    cat("Bootstrap is running..be patient...")
+
     parabootlist=paralist;tunbootlist=tunlist
 
     # create progress bar

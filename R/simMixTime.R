@@ -19,7 +19,16 @@
 #' @keywords Simulation
 #' @export
 #' @examples
-#' simMixTime()
+#'
+#' require(ARZIMM)
+#' data(sampleparameters)
+#'
+#' set.seed(1234)
+#' simMixTime(baseFdataN2M=paralist$baseFdataN2M,conFdataN2L=paralist$conFdataN2L,timeN=paralist$timeN,
+#' interceptM=paralist$interceptM,betaMM=paralist$betaMM,gammaLM=paralist$gammaLM,
+#' sigmaM=paralist$sigmaM,biN2M=paralist$biN2M)
+#'
+#'
 
 
 simMixTime=function(baseFdataN2M,conFdataN2L,timeN,interceptM,betaMM,gammaLM=NULL,sigmaM,biN2M=NULL,family='Poisson') {

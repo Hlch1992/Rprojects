@@ -40,7 +40,7 @@ ARZIMM.initcal=function(datalist,family='Poisson',iniw=T,selectpara=list(selgamm
       BIC=log(length(Ytemp))*fit.ridge$df-2*apply(as.matrix(cbind(1,Xtemp)) %*% as.matrix(coef(fit.ridge)),2,function(ypred) sum(dpois(Ytemp,exp(ypred),log=TRUE)))
       w3 <- 1/abs(matrix(coef(fit.ridge,s=fit.ridge$lambda[which.min(BIC)])[-1, 1]))^1
       # w3
-      w3[w3[,1] == Inf] <- max(w3[w3!=Inf])*100
+      w3[w3[,1] == Inf] <- w3[m+1] <- max(w3[w3!=Inf])*100
       w3[1]=0
 
       weight1all[,m]=w3
@@ -91,10 +91,12 @@ ARZIMM.initcal=function(datalist,family='Poisson',iniw=T,selectpara=list(selgamm
 
         gm1 <- tryCatch({
           glmer(as.formula(paste0('y ~ ',paste(colnames(conFdataNL)[which(gammainitLM[-1,m]!=0)],collapse = '+'),'+ (1 | group)')),
-                data = data.frame(y=as.numeric(yFdataNM[,m]==0),conFdataNL,group=group),family = binomial)
+                data = data.frame(y=as.numeric(yFdataNM[,m]==0),conFdataNL,group=group),family = binomial,
+                control=glmerControl(check.conv.singular = .makeCC(action = "ignore",  tol = 1e-4)))
 
         }, error = function(e) {
-          glmer(y~(1|group),data = data.frame(y=as.numeric(yFdataNM[,m]==0),conFdataNL,group=group),family = binomial)
+          glmer(y~(1|group),data = data.frame(y=as.numeric(yFdataNM[,m]==0),conFdataNL,group=group),family = binomial,
+                control=glmerControl(check.conv.singular = .makeCC(action = "ignore",  tol = 1e-4)))
 
         })
 
@@ -103,11 +105,13 @@ ARZIMM.initcal=function(datalist,family='Poisson',iniw=T,selectpara=list(selgamm
       }else{
         gm1 <- tryCatch({
           glmer(as.formula(paste0('y ~ ',paste(colnames(conFdataNL),collapse = '+'),'+ (1 | group)')),
-                data = data.frame(y=as.numeric(yFdataNM[,m]==0),conFdataNL),family = binomial)
+                data = data.frame(y=as.numeric(yFdataNM[,m]==0),conFdataNL),family = binomial,
+                control=glmerControl(check.conv.singular = .makeCC(action = "ignore",  tol = 1e-4)))
         }, error = function(e) {
           fit <- cv.glmnet(as.matrix(conFdataNL), as.numeric(yFdataNM[,m]==0),family='binomial', alpha=1)
           glmer(as.formula(paste0('y ~ ',paste(colnames(conFdataNL)[which(as.vector(coef(fit,s=fit$lambda.1se))[-1]!=0)],collapse = '+'),'+ (1 | group)')),
-                data = data.frame(y=as.numeric(yFdataNM[,m]==0),conFdataNL,group=group),family = binomial)
+                data = data.frame(y=as.numeric(yFdataNM[,m]==0),conFdataNL,group=group),family = binomial,
+                control=glmerControl(check.conv.singular = .makeCC(action = "ignore",  tol = 1e-4)))
         })
 
 
