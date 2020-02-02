@@ -1,0 +1,9 @@
+* using log directory 'C:/Users/Hlch1/OneDrive - NYU Langone Health/Li/ARZIMM/ARZIMM/ARZIMM.Rcheck'
+* using R version 3.6.0 (2019-04-26)
+* using platform: i386-w64-mingw32 (32-bit)
+* using session charset: ISO8859-1
+* checking for file 'ARZIMM/DESCRIPTION' ... ERROR
+Required fields missing or empty:
+  'License' 'Author' 'Maintainer'
+* DONE
+Status: 1 ERROR
