@@ -1,5 +1,5 @@
 Package: ARZIMM
-Title: ARZIMM: autoregressive zero-inflated mixed model
+Title: ARZIMM: Statistical modeling and inference of microbial interaction and stability for microbial dynamical systems
 Version: 0.0.0.9000
 Authors@R: c(person("Linchen", "He", role = c("aut", "cre"),
                      email = "Linchen.He@nyulangone.org"),
@@ -8,7 +8,7 @@ Author: Linchen He [aut, cre],
   Huilin Li [aut]
 Maintainer: Linchen He <Linchen.He@nyulangone.org>
 Description: This package is developed to model microbial dynamical systems from longitudinal microbiome data and infer microbial interaction and stability.
-Depends: R (>= 3.3.0), expm, ggplot2, glmnet, lme4, phyloseq
+Depends: R (>= 3.3.0), expm, ggplot2, glmnet, lme4, phyloseq, stringr
 License:  GPL (>= 2)
 Encoding: UTF-8
 RoxygenNote: 7.0.2.9000
