@@ -32,11 +32,9 @@
 #'   \item{mse}{a vector of square root of mean (pearson) standard error}
 #'   \item{lambda}{a vector of \code{lambda} sequence}
 #' @keywords EM algorithm
-#' @export
-#' @examples
-#' emnr()
 
-emnr=function(data,para,weight,family,selgamma=F){
+
+emnr=function(data,para,weight,family,selgamma=FALSE){
 
   ########## get data
   yFdata=data$yFdata;xFdata=data$xFdata;conFdata=data$conFdata;group=data$group
@@ -96,7 +94,7 @@ emnr=function(data,para,weight,family,selgamma=F){
   expectres=Updata_E(yFdata,theta_bi,logitp_ai,sigma,cihatN2,group)
   cihatN2=expectres$cihatN2;civarN2=expectres$civar;uhatN=expectres$uhatN
   maximres=Update_p_M(data=data,para=list(beta=beta,gamma=gamma,sigma=sigma),
-                      expectres=expectres,weight,selgamma=selgamma,sel=T,fast = F)
+                      expectres=expectres,weight,selgamma=selgamma,sel=TRUE,fast = TRUE)
   beta=maximres$beta;gamma=maximres$gamma;sigma=maximres$sigma;logl=maximres$logl
   if(sum(is.na(c(beta,gamma,sigma)))>0)  {beta = betaold;gamma = gammaold;sigma = sigmaold; cihatN2=cihatN2old}
 

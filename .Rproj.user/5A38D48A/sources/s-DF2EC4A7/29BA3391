@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1580705454815.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1707488871",
+    "id" : "29BA3391",
+    "lastKnownWriteTime" : 1580705472,
+    "last_content_update" : -2147483648,
+    "path" : "C:/Users/Hlch1/OneDrive - NYU Langone Health/Li/ARZIMM/ARZIMM/R/simMixTime.R",
+    "project_path" : "R/simMixTime.R",
+    "properties" : {
+        "cursorPosition" : "28,33",
+        "scrollLine" : "12"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

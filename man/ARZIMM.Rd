@@ -5,77 +5,35 @@
 \title{Auto-Regressive Zero-Inflated Mixed Model}
 \usage{
 ARZIMM(
-  Varname = NA,
+  phy,
+  Varname,
   Conname = NA,
   Covname = NA,
-  fdata = NA,
   IDname = "ID",
   Tname = "Time",
-  group = NA,
+  fdata = NULL,
   family = "Poisson",
-  initpara = list(betaini = NULL, gammaini = NULL, sigmaini = NULL, weight1all = NULL,
-    weight2all = NULL, calini = T, iniw = F),
-  tunpara = list(lambdaseq1 = NULL, lambdaseq2 = NULL, ntun = 50, epsilon = c(50000, 5)),
-  selectpara = list(selgamma = T, selcri = "BIC", pen = "adalasso"),
-  bootpara = list(bootpval = T, nboot = 500)
+  ...
 )
 }
 \arguments{
+\item{phy}{A phyloseq-class experiment-level object example data. See \Data{phyExample}}
+
 \item{Varname}{a vector of character string indicating the taxa names in the non-zero auto-regressive model}
 
 \item{Conname}{a vector of character string indicating the concomitant variable names in the zero state logit model}
 
 \item{Covname}{a vector of character string indicating the covariate names in the non-zero auto-regressive model}
 
-\item{fdata}{a data frame containing all variables to be analysized}
-
 \item{IDname}{a character string indicating the subject ID. Default is ID}
 
 \item{Tname}{a character string indicating the time variable. Default is Time}
 
-\item{group}{a vector of numbers as group indicator. To be calculated automatically When absent}
+\item{fdata}{a data frame containing all variables to be analysized}
 
 \item{family}{a character string indicating the distribtuion. default is Poisson}
 
-\item{initpara}{a named list of user-specified initial values:
-\describe{
-  \item{betaini}{the matrix of fixed effects for the non-zero auto-regressive model}
-  \item{gammaini}{the matrix of fixed effects for the zero state logit model}
-  \item{sigmaini}{the measurement error standard deviation for both the non-zero auto-regressive model and
-  the zero state logit model}
-  \item{weight1all}{observation weights for the non-zero auto-regressive model. Default is 1 for each observation}
-  \item{weight2all}{observation weights for the zero state logit model. Default is 1 for each observation}
-  \item{calini=T}{logical; should initial parameters be calculated. Default is Ture}
-  \item{iniw}{logical; should observation weights be calculated according to initial parameters. Default is False}
-  When this list of initial values does not contain some of these components or contains components
-  not of the appropriate length, then the default initial values are used instead.
-}}
-
-\item{tunpara}{a list of control values with components:
-\describe{
-  \item{lambdaseq1}{a user supplied \code{lambda} sequence for the non-zero auto-regressive model.
-  Typical usage is to have the program compute its own \code{lambda} sequence. Supplying a value of
-  \code{lambda} overrides this. WARNING: use with care. Avoid supplying a single value for \code{lambda}}
-  \item{lambdaseq2}{a user supplied \code{lambda} sequence for the  zero state logit model.
-  Typical usage is to have the program compute its own \code{lambda} sequence. Supplying a value of
-  \code{lambda} overrides this. WARNING: use with care. Avoid supplying a single value for \code{lambda}}
-  \item{ntun}{the number of \code{lambda} values - default is 50}
-  \item{epsilon}{the range of lambda values; default= c(5e4,5)}
-}}
-
-\item{selectpara}{a list of control values with components:
-\describe{
-  \item{selgamma}{logical; should concomitant variables in the zero state logit model be selected}
-  \item{selcri}{method to be use for variable selection. Currently three options. The default is BIC.
-  Other choices are AIC and CV}
-  \item{pen}{penalty; defualt is 'adalasso'}
-}}
-
-\item{bootpara}{a list of control values with components:
-\describe{
-  \item{bootpval}{logical; should p value be calculated using bootstrap}
-  \item{nboot}{the number of bootstrap simulations; default is 500}
-}}
+\item{...}{See \code{ARZIMM.control}}
 }
 \value{
 an object of class \code{"ARZIMMObject"} is returned, which is a list with the ingredients of fit.
@@ -123,6 +81,17 @@ This function allows you to fit the ARZIMM.
 }
 \examples{
 
+data(phyExample)
+
+Varname=colnames(otu_table(phyExample))
+Conname=colnames(sample_data(phyExample))[1:6]
+Tname=colnames(sample_data(phyExample))[7]
+IDname=colnames(sample_data(phyExample))[8]
+
+ARZIMMresult=ARZIMM::ARZIMM(phyExample,Varname = Varname,Conname = Conname,
+IDname = IDname,Tname = Tname,bootpara=list(bootpval=TRUE,nboot=5))
+
+
 data(sampledata)
 
 Varname=colnames(sampledata)[1:20]
@@ -130,7 +99,10 @@ Conname=colnames(sampledata)[21:26]
 Tname=colnames(sampledata)[27]
 IDname=colnames(sampledata)[28]
 
-ARZIMM::ARZIMM(Varname = Varname,Conname = Conname,fdata = sampledata,IDname = IDname,Tname = Tname,
-bootpara=list(bootpval=T,nboot=100))
+ARZIMMresult=ARZIMM::ARZIMM(phy=NULL,Varname = Varname,Conname = Conname,fdata=sampledata,
+IDname = IDname,Tname = Tname,bootpara=list(bootpval=TRUE,nboot=5))
+}
+\seealso{
+\code{ARZIMM.control}
 }
 \keyword{ARZIMM}

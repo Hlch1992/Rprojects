@@ -1,4 +1,5 @@
-ARZIMM.initcal=function(datalist,family='Poisson',iniw=T,selectpara=list(selgamma=T,selcri='BIC',pen='adalasso')){
+ARZIMM.initcal <-
+  function(datalist,family='Poisson',iniw=TRUE,selectpara=list(selgamma=TRUE,selcri='BIC',pen='adalasso')){
 
 
   ##### read data
@@ -133,3 +134,4 @@ ARZIMM.initcal=function(datalist,family='Poisson',iniw=T,selectpara=list(selgamm
   return(list(initpara=list(betaini=betainitMM,gammaini=gammainitLM,sigmaini=sigmainitM,weight1all=weight1all,weight2all=weight2all,iniw=iniw,calini=T),
               tunpara=list(lambdaseq1=NULL,lambdaseq2=NULL,ntun=50,epsilon = c(5e4,5))))
 }
+

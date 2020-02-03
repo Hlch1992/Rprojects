@@ -1,0 +1,30 @@
+ex.1 <- c(
+  "\\dontrun{",
+  "require(ARZIMM)",
+  "data(sampledata)",
+  "Varname=colnames(sampledata)[1:20]",
+  "Conname=colnames(sampledata)[21:26]",
+  "Tname=colnames(sampledata)[27]",
+  "IDname=colnames(sampledata)[28]",
+  "ARZIMM::ARZIMM(Varname = Varname,Conname = Conname,fdata = sampledata,IDname = IDname,Tname = Tname,",
+  "bootpara=list(bootpval=T,nboot=100))",
+  "}"
+)
+ex.2 <- c(
+  "\\dontrun{",
+  "require(ARZIMM)",
+  "data(sampleparameters)",
+  "set.seed(1234)",
+  "simMixTime(baseFdataN2M=parameters$baseFdataN2M,conFdataN2L=parameters$conFdataN2L,timeN=parameters$timeN,",
+  "interceptM=parameters$interceptM,betaMM=parameters$betaMM,gammaLM=parameters$gammaLM,",
+  "sigmaM=parameters$sigmaM,biN2M=parameters$biN2M)",
+  "}"
+)
+
+require("roxygen2")
+roxygenize(
+  package.dir="ARZIMM",
+  roclets = c("collate", "namespace", "rd")
+)
+
+shell("R CMD check ARZIMM", intern=FALSE)

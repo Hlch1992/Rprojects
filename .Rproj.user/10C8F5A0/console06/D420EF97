@@ -1,0 +1,15 @@
+[0m[0KMicrosoft Windows [Version 10.0.17134.1184][0K[?25l
+(c) 2018 Microsoft Corporation. All rights reserved.[0K
+[0K
+C:\Users\lh1790\OneDrive - NYU Langone Health\Li\ARZIMM\ARZIMM>[0K[?25hc[0Kd[0K[67G[?25lC:\Users\lh1790\OneDrive - NYU Langone Health\Li\ARZIMM\ARZIMM>cd .[0K[?25h.[0K/[0K[?25l
+[0K
+C:\Users\lh1790\OneDrive - NYU Langone Health\Li\ARZIMM>[0K[?25hR[0K[59G[?25lC:\Users\lh1790\OneDrive - NYU Langone Health\Li\ARZIMM>R C[0K[?25hM[0KD[0K[63G[?25lC:\Users\lh1790\OneDrive - NYU Langone Health\Li\ARZIMM>R CMD R[0K[?25hd[0K2[0Kp[0Kd[0Kf[0K[70G[?25lC:\Users\lh1790\OneDrive - NYU Langone Health\Li\ARZIMM>R CMD Rd2pdf A[0K[?25hR[0KZ[0KI[0KM[0KM[0K[?25l
+[0K[?25h]0;  - R  CMD Rd2pdf ARZIMM[?25lHmm ... looks[0K[11G[?25h[?25lHmm ... looks like a package[0K
+Converting Rd files to LaTeX[0K[30G[?25h[?25lConverting Rd files to LaTeX Warning in parse_Rd("ARZIMM/man/ARZIMM.Rd", encoding = c(Encoding = "UTF-8"),  :[0K
+  ARZIMM/man/ARZIMM.Rd:20: unknown macro '\Data'[0K
+[0K[?25h[?25l
+Creating pdf output from LaTeX ...[0K
+[0K[?25hSaving output to 'ARZIMM.pdf' ...[0K[?25l
+Done[0K
+[0K[?25h]0; [?25l
+C:\Users\lh1790\OneDrive - NYU Langone Health\Li\ARZIMM>[0K[?25h

@@ -4,7 +4,7 @@
 \alias{emnr}
 \title{EM algorithm}
 \usage{
-emnr(data, para, weight, family, selgamma = F)
+emnr(data, para, weight, family, selgamma = FALSE)
 }
 \arguments{
 \item{data}{a list of data with componenets:
@@ -46,9 +46,6 @@ a list of fits
 }
 \description{
 EM algorithm used in the ARZIMM model.
-}
-\examples{
-emnr()
 }
 \keyword{EM}
 \keyword{algorithm}

@@ -49,13 +49,22 @@ Simulation for the ARZIMM model.
 \examples{
 
 require(ARZIMM)
-data(sampleparameters)
+data(parameters)
 
 set.seed(1234)
-simMixTime(baseFdataN2M=parameters$baseFdataN2M,conFdataN2L=parameters$conFdataN2L,timeN=parameters$timeN,
-interceptM=parameters$interceptM,betaMM=parameters$betaMM,gammaLM=parameters$gammaLM,
-sigmaM=parameters$sigmaM,biN2M=parameters$biN2M)
+sim.otu.tab=simMixTime(baseFdataN2M=parameters$baseFdataN2M,conFdataN2L=parameters$conFdataN2L,
+timeN=parameters$timeN,interceptM=parameters$interceptM,betaMM=parameters$betaMM,
+gammaLM=parameters$gammaLM,sigmaM=parameters$sigmaM,biN2M=parameters$biN2M)
 
+ fdata=cbind(sim.otu.tab[[1]],sim.otu.tab[[2]],subjid=sim.otu.tab[[3]])
+ Varname=colnames(sim.otu.tab[[1]])
+ Conname=colnames(sim.otu.tab[[2]])[-ncol(sim.otu.tab[[2]])]
+ IDname='subjid'
+ Tname='time'
+
+ #### NOT RUN
+ # ARZIMMresult=ARZIMM::ARZIMM(phy=NULL,Varname = Varname,Conname = Conname,fdata=fdata,
+ # IDname = IDname,Tname = Tname)
 
 }
 \keyword{Simulation}

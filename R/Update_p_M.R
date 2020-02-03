@@ -1,4 +1,4 @@
-Update_p_M<-function(data,para,expectres,weight,selgamma=F,sel=F,fast=T){
+Update_p_M<-function(data,para,expectres,weight,selgamma=FALSE,sel=FALSE,fast=TRUE){
 
   ########## get data
   yFdata=data$yFdata;xFdata=data$xFdata;conFdata=data$conFdata;group=data$group

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1580705338986.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3238992572",
+    "id" : "DA58C43B",
+    "lastKnownWriteTime" : 1580705360,
+    "last_content_update" : -2147483648,
+    "path" : "C:/Users/Hlch1/OneDrive - NYU Langone Health/Li/ARZIMM/ARZIMM/R/ARZIMM.R",
+    "project_path" : "R/ARZIMM.R",
+    "properties" : {
+        "cursorPosition" : "99,33",
+        "scrollLine" : "84"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
