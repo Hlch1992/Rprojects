@@ -4,6 +4,14 @@ Statistical modeling and inference of microbial interaction and stability for mi
 
 This package is developed to model microbial dynamical systems from longitudinal microbiome data and infer microbial interaction and stability. ARZIMM models the excess zero abundance and the non-zero abundances separately; and use a random effect model to borrow strength across subjects.
 
+NeedsCompilation: No
+
+Depends: R(>= 3.3.0)
+
+Imports: phyloseq, glmnet, stringr, expm, lme4, ggplot2
+
+License: GPL-2
+
 The manual file is "ARZIMM-manual.pdf".
 
 Installation of ARZIMM in R:
