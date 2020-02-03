@@ -1,7 +1,7 @@
 #' Auto-Regressive Zero-Inflated Mixed Model
 #'
 #' This function allows you to fit the ARZIMM.
-#' @param phy A phyloseq-class experiment-level object example data. See \Data{phyExample}
+#' @param phy A phyloseq-class experiment-level object example data. See \code{phyExample}
 #' @param Varname a vector of character string indicating the taxa names in the non-zero auto-regressive model
 #' @param Conname a vector of character string indicating the concomitant variable names in the zero state logit model
 #' @param Covname a vector of character string indicating the covariate names in the non-zero auto-regressive model
