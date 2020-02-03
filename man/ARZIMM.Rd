@@ -17,7 +17,7 @@ ARZIMM(
 )
 }
 \arguments{
-\item{phy}{A phyloseq-class experiment-level object example data. See \Data{phyExample}}
+\item{phy}{A phyloseq-class experiment-level object example data. See \code{phyExample}}
 
 \item{Varname}{a vector of character string indicating the taxa names in the non-zero auto-regressive model}
 
