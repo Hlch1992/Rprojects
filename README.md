@@ -6,7 +6,7 @@ This package is developed to model microbial dynamical systems from longitudinal
 
 NeedsCompilation: No
 
-Depends: R(>= 3.3.0)
+Depends: R(>= 3.6.2)
 
 Imports: phyloseq, glmnet, stringr, expm, lme4, ggplot2
 
@@ -17,7 +17,7 @@ The manual file is "ARZIMM-manual.pdf".
 Installation of ARZIMM in R:
 ```r
 library("devtools")
-install_github("Hlch1992/ARZIMM")
+install_github("Hlch1992/ARZIMM",force=T)
 ```
 
 A remark should be make that there requires some patience to install the dependent packages. 
